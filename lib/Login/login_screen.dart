@@ -9,13 +9,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'login_bloc/login_bloc.dart';
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  const MyHomePage({super.key});
 
-  final TextEditingController userNameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final loginBloc = context.read<LoginBloc>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -30,27 +29,27 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   TextField(
                     decoration: InputDecoration(hintText: "userName"),
-                    controller: userNameController,
+                    controller: loginBloc.userNameController,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   TextField(
                     decoration: InputDecoration(hintText: "Password"),
-                    controller: passwordController,
+                    controller: loginBloc.passwordController,
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        if (userNameController.text.isNotEmpty &&
-                            passwordController.text.isNotEmpty) {
+                        if (loginBloc.userNameController.text.isNotEmpty &&
+                            loginBloc.passwordController.text.isNotEmpty) {
                           BlocProvider.of<LoginBloc>(context).add(
                               LoginRequestEvent(
                                   loginRequestModel: LoginRequestModel(
-                                      username: userNameController.text,
-                                      password: passwordController.text)));
+                                      username: loginBloc.userNameController.text,
+                                      password: loginBloc.passwordController.text)));
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(

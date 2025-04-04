@@ -1,6 +1,7 @@
 import 'package:bloc_practice/Login/login_bloc/login_event.dart';
 import 'package:bloc_practice/Login/login_bloc/login_state.dart';
 import 'package:bloc_practice/Login/login_model/login_responce_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../login_repo/login_repo.dart';
@@ -21,4 +22,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       }
     });
   }
+
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
 }
