@@ -4,6 +4,7 @@ import 'package:bloc_practice/Login/login_bloc/login_event.dart';
 import 'package:bloc_practice/Login/login_bloc/login_state.dart';
 import 'package:bloc_practice/Login/login_model/login_request_model.dart';
 import 'package:bloc_practice/counter/counter_screen.dart';
+import 'package:bloc_practice/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,8 +27,16 @@ class MyHomePage extends StatelessWidget {
           },));
         },child: Padding(
           padding: const EdgeInsets.only(right: 8.0),
-          child: Icon(Icons.person),
-        ))],
+          child: Icon(Icons.countertops),
+        )),
+          GestureDetector(onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return ProfileScreen();
+            },));
+          },child: Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: Icon(Icons.person),
+          ))],
       ),
       body: SafeArea(
           child: SingleChildScrollView(

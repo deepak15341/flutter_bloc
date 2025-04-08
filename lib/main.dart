@@ -1,4 +1,6 @@
 import 'package:bloc_practice/Login/login_bloc/login_bloc.dart';
+import 'package:bloc_practice/counter/counter_bloc/counter_bloc.dart';
+import 'package:bloc_practice/profile/profile_bloc/profile_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +22,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => LoginBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CounterBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ProfileBloc(),
         )
       ],
       child: MaterialApp(
