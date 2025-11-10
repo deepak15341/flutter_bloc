@@ -1,4 +1,6 @@
-[
+{status : 200
+message : "data fetched successfully"
+data : [
   {
     "id": 1,
     "name": "Buy groceries",
@@ -100,3 +102,4 @@
     "isCompleted": false
   }
 ]
+}
